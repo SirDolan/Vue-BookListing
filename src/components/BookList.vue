@@ -1,36 +1,43 @@
 <template>
-<div> 
-<h1>{{ title }}</h1>
-<ul>
-  <book-item v-for="book in books" :book =book></book-item>
-</ul>
-</div>
+  <div>
+    <h1>{{ title }}</h1>
+    <book-form @addBook="appendBook"></book-form>
+    <ul>
+      <book-item v-for="book in books" :book="book"></book-item>
+    </ul>
+  </div>
 </template>
 
 <script>
-import BookItem from './BookItem';
+import BookItem from "./BookItem";
+import BookForm from "./BookForm";
 
 export default {
-  name: 'BookList',
-  components:
-  {
-    BookItem
+  name: "BookList",
+  components: {
+    BookItem,
+    BookForm
   },
   data() {
-    return{
-   books: [
-    {title: 'Self-Reliance', author: 'Ralph Waldo Emerson'},
-    {title: 'American Gods', author: 'Neil Gaiman'},
-    {title: 'Amusing Ourselves to Death', author: 'Neil Postman'}
-    ]
+    return {
+      books: [
+        { title: "Self-Reliance", author: "Ralph Waldo Emerson" },
+        { title: "American Gods", author: "Neil Gaiman" },
+        { title: "Amusing Ourselves to Death", author: "Neil Postman" }
+      ]
     };
-
+  },
+  methods: {
+    appendBook(bookTitle, bookAuthor) {
+      this.books.appendBook({ title: bookTitle, author: bookAuthor });
+    }
   }
 };
 </script>
 
 <style>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 ul {
