@@ -2,9 +2,7 @@
 <div> 
 <h1>{{ title }}</h1>
 <ul>
-  <li>Coffee</li>
-  <li>Tea</li>
-  <li>Milk</li>
+  <li v-for="book in books">{{book.title}}:{{book.author}}</li>
 </ul>
 </div>
 </template>
@@ -13,14 +11,17 @@
 export default {
   name: 'BookList',
   data() {
-   books: 
-    [
+    return{
+   books: [
     {title: 'Self-Reliance', author: 'Ralph Waldo Emerson'},
     {title: 'American Gods', author: 'Neil Gaiman'},
-    {title: 'Amusing Ourselves to Death', author: 'Neil Postman'},
+    {title: 'Amusing Ourselves to Death', author: 'Neil Postman'}
     ]
-  },
-};</script>
+    };
+
+  }
+};
+</script>
 
 <style>
 h1, h2 {
