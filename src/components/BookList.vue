@@ -23,6 +23,7 @@ export default {
 
     return {
       title: 'All Books',
+      books,
     };
   },
 };</script>
